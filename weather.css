@@ -1,0 +1,82 @@
+#weather{
+    /* border: 3px solid cyan; */
+    padding: 10px;
+    margin: 0px;
+    text-align: center;
+    width: 350px;
+    position: relative;
+    background-color:rgb(223, 227, 240);
+}
+#weather h1{
+    margin: 0px;
+    color: forestgreen;
+}
+
+#showWeather, #hideWeather, #showForecast, #closeForecast{
+    display: block;
+    position: relative;
+    border: 0px;
+    background-color: rgb(211, 198, 228);
+    padding: 5px;
+    width: max-content;
+}
+#showWeather{margin: 15px;}
+
+#hideWeather:hover,
+#showWeather:hover{
+    background-color: lightslategray;
+    color:seashell;
+}
+#showForecast, #closeForecast{
+    position: relative;
+    border: 0;    
+    height: 25px;
+    margin-top: 10px;
+}
+#showForecast:hover{
+    background-color: lightslategray;
+}
+#threeDays{
+    border: 2px solid violet;
+    display: flex;
+    position: relative;
+    margin-top: 10px;
+    flex-direction: column;
+    display: none;
+}
+#firstDay, #secondDay, #thirdDay{
+   border: 2px solid lightblue;
+}
+
+#closeForecast:hover{
+    background-color: lightslategray;
+}
+#svgIcon{
+    margin-top: 5px;
+    animation-name: rotate;
+    animation-duration:10s;
+}
+#svgIcon2{
+    animation-name: rotate;
+    animation-duration:10s;
+    display: block;
+    margin: 5px auto;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(360deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
