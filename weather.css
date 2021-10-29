@@ -45,7 +45,8 @@
     display: none;
 }
 #firstDay, #secondDay, #thirdDay{
-   border: 2px solid lightblue;
+   border: 2px solid rgb(184, 184, 65);
+   margin: 5px;
 }
 
 #closeForecast:hover{
