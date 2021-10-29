@@ -9,7 +9,7 @@
 }
 #weather h1{
     margin: 0px;
-    color: forestgreen;
+    color: rgb(184, 184, 65);
 }
 
 #showWeather, #hideWeather, #showForecast, #closeForecast{

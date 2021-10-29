@@ -69,9 +69,9 @@ const WeatherWidget = (function(){
   function getWeatherData(pos){//get today weather
 
     crd = pos.coords;
-    const apiQuery = api.url+"weather?lat="+crd.latitude+"&lon="+crd.longitude+"&units=metric&lang=ru&appid="+api.key;
+    const query = api.url+"weather?lat="+crd.latitude+"&lon="+crd.longitude+"&units=metric&lang=ru&appid="+api.key;
 
-    fetch(apiQuery)
+    fetch(query)
     .then(response => response.json())
     .then(data => {
       printWeather(data);
@@ -84,9 +84,9 @@ const WeatherWidget = (function(){
   function getForecast(){ //get 3 day weather
     // let crd = pos.coords;
     loaderSvg2 = document.getElementById('svgIcon2');
-    const threeDaysQuery = api.url+"forecast?lat="+crd.latitude+"&lon="+crd.longitude+"&cnt=3&units=metric&lang=ru&appid="+api.key;
+    const query = api.url+"forecast?lat="+crd.latitude+"&lon="+crd.longitude+"&cnt=3&units=metric&lang=ru&appid="+api.key;
 
-    fetch(threeDaysQuery)// получение погоды на три дня
+    fetch(query)// получение погоды на три дня
     .then(response => response.json())
     .then(data => printForecastData(data))
     .catch(error => console.error('Причина: '+ error)); 
