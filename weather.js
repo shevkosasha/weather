@@ -18,13 +18,13 @@ const WeatherWidget = (function(){
   const field = {
     render: () => {
       return `
-        <button id="hideWeather">Hide weather</button>
-        <button id="showForecast">3 дня</button>        
+        <button id="hideWeather">Спрятать погоду</button>
+        <button id="showForecast">Погода на 3 дня</button>        
         <h1>Погода</h1>
         <object id="svgIcon" type="image/svg+xml" data="sun.svg" width="40" height="40" >
-        Your browser does not support SVG
+        Ваш браузер не поддерживает SVG
         </object>
-        <p id = 'loading'>Loading location...</p>
+        <p id = 'loading'>Загружаем ваше местоположение...</p>
         <h2 id="location"></h2>
         <h3 id="temp-icon"></h3>
         <div id="temp"></div>
@@ -33,7 +33,7 @@ const WeatherWidget = (function(){
         <div id="wind"></div>
         <div id = 'threeDays'>        
           <object id="svgIcon2" type="image/svg+xml" data="loader.svg" width="30" height="30" >
-          Your browser does not support SVG
+          Ваш браузер не поддерживает SVG
           </object>
           <div id = 'firstDay'></div>
           <div id = 'secondDay'></div>
@@ -49,7 +49,7 @@ const WeatherWidget = (function(){
     weatherDiv.id = 'weather';
     showWeatherBtn = document.createElement('button');
     showWeatherBtn.id = 'showWeather';
-    showWeatherBtn.innerText = 'Show weather';
+    showWeatherBtn.innerText = 'Показать погоду';
     showWeatherBtn.style.display = 'none';
     weatherDiv.innerHTML = field.render();
     document.body.append(showWeatherBtn);
@@ -59,10 +59,10 @@ const WeatherWidget = (function(){
   function error(err){
     console.warn(`ERROR(${err.code}): ${err.message}`);
     if (err.code === 1) {
-      loading.innerText = 'Геопозиция выключена. Для того, чтобы отобразить погоду, нужно ее включить';      
+      loading.innerText = 'Чтобы отобразить погоду, нужно разрешить доступ к вашему местоположению';      
     }
     else if (err.code === 3) {
-        loading.innerText = 'Что-то пошло не так! Перезагрузите страничку';
+        loading.innerText = 'Перезагрузите страничку, что-то не получается';
     }
   }
 
@@ -77,7 +77,7 @@ const WeatherWidget = (function(){
       printWeather(data);
       addListeners();
     })         
-    .catch(error => console.error('Причина: '+ error));
+    .catch(error => console.error('Ошибка: '+ error));
 
   }
 
@@ -89,7 +89,7 @@ const WeatherWidget = (function(){
     fetch(query)// получение погоды на три дня
     .then(response => response.json())
     .then(data => printForecastData(data))
-    .catch(error => console.error('Причина: '+ error)); 
+    .catch(error => console.error('Ошибка: '+ error)); 
   }
 
   function printWeather(data){
